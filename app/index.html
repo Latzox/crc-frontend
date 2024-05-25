@@ -214,14 +214,10 @@
         </div>
     </div>
     <script>
-        fetch('/api/getFunctionKey')
-            .then(response => response.text())
-            .then(variableValue => {
-                console.log('Environment Variable:', variableValue);
-                // Use the variable as needed in your application
-            })
-            .catch(error => console.error('Error fetching the environment variable:', error));
-
+        (async function () {
+            const { text } = await (await fetch(`/api/getFunctionsKey`)).json();
+            console.log('Environment Variable:', text);
+        }());
 
         document.addEventListener("DOMContentLoaded", function () {
             const countElement = document.getElementById('visitor-count');
