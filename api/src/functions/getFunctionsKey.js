@@ -1,18 +1,7 @@
-const { app } = require('@azure/functions');
-
-app.http('getFunctionsKey', {
-    methods: ['GET', 'POST'],
-    authLevel: 'anonymous',
-    handler: async (request, context) => {
-        context.log(`Http function processed request for url "${request.url}"`);
-
-        // Fetch the API key from the environment variables
-        const functionskey = process.env.FUNCTIONS_APP_KEY;
-
-        // Return the API key in the response body as JSON
-        context.res = {
-            headers: { 'Content-Type': 'application/json' },
-            body: { functionskey }
-        };
-    }
-});
+// api/getEnvironmentVariable/index.js
+module.exports = async function (context, req) {
+    const functionKey = process.env.FUNCTIONS_APP_KEY; // replace MY_VARIABLE_NAME with your actual variable name
+    context.res = {
+        body: functionKey,
+    };
+};

@@ -214,22 +214,14 @@
         </div>
     </div>
     <script>
+        fetch('/api/getFunctionKey')
+            .then(response => response.text())
+            .then(variableValue => {
+                console.log('Environment Variable:', variableValue);
+                // Use the variable as needed in your application
+            })
+            .catch(error => console.error('Error fetching the environment variable:', error));
 
-        // Fetch the API key from the API endpoint
-        fetch('/api/getFunctionsKey')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok ' + response.statusText);
-                }
-                return response.json();
-            })
-            .then(data => {
-                console.log('Functions Key:', data.functionskey); // Use the API key as needed
-                // You can now use data.functionskey in your application
-            })
-            .catch(error => {
-                console.error('Error fetching API key:', error);
-            });
 
         document.addEventListener("DOMContentLoaded", function () {
             const countElement = document.getElementById('visitor-count');
