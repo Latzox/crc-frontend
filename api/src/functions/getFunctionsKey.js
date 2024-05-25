@@ -12,7 +12,7 @@ app.http('getFunctionsKey', {
         // Return the API key in the response body as JSON
         context.res = {
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ functionskey })
+            body: { functionskey }
         };
     }
 });
