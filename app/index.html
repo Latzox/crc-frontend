@@ -217,13 +217,7 @@
         document.addEventListener("DOMContentLoaded", function () {
             const countElement = document.getElementById('visitor-count');
 
-            fetch('https://latzo.azure-api.net/crc/update_counter', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({})
-            })
+            fetch('https://fa-crc-preview-001.azurewebsites.net/api/update_counter?code=GE-78zgw6DRQhYo9I12fCc_RQedh647M7gl0HFDJS_oAAzFu_LW1bw==')
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('Network response was not ok ' + response.statusText);
